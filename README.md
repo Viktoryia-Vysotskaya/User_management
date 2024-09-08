@@ -1,46 +1,110 @@
-# Getting Started with Create React App
+# User Management Application 📝
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Hi there! 👋 I created this React application to showcase my skills with Redux Toolkit, TypeScript, and implementing data filtering. This application allows you to fetch a list of users from the JSONPlaceholder API and display it in a convenient table with filtering capabilities based on various criteria.
 
-In the project directory, you can run:
+💻 Live demo:
 
-### `npm start`
+(!) Free hosting so might take a while to load for first time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+👀 Screenshot:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+📸 ↴︎
 
-### `npm test`
+![Alt Text](./src/screenshots/User%20management.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Functional Requirements
 
-### `npm run build`
+### 1. Fetch Users
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The application fetches user data via a GET request to the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/users).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Display Users in a Table
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Users are displayed in a table with columns for: name, username, email, and phone.
 
-### `npm run eject`
+### 3. Advanced Filtering
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- The application features search input fields to filter by name, username, email, and phone.
+- The table results update in real-time as you type into the filter fields.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. State Management
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Redux Toolkit](https://redux-toolkit.js.org/) is used to manage the application state, including user data and filter states.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 5. Type Safety
 
-## Learn More
+- [TypeScript](https://www.typescriptlang.org/) is used to enforce strict typing and help avoid errors during development.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 6. Design and Styling
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The application interface is designed to be user-friendly and visually appealing. Styling is done using CSS, with thoughtful design for table elements and filtering.
+
+## Implementation
+
+### Components
+
+- **App.tsx**: The main application component, which includes a header and the `UserTable` component.
+- **UserTable.tsx**: Component for displaying the user table and filtering data. Manages local states for filtering and interacts with Redux to fetch data.
+
+### Redux Toolkit
+
+- **userSlice.ts**: Defines the state for users and filters, as well as the logic for data fetching and filtering. Uses `createAsyncThunk` for asynchronous data fetching and `createSlice` for state management.
+
+### Issues and Solutions
+
+#### Issue 1: Filtering Not Working
+
+**Description:**
+Filtering was not updating correctly when text was entered in the search fields.
+
+**Solution:**
+Updated the filtering logic in `userSlice`. Now using the `Object.keys` function for dynamic filter checking, which allows for correct user filtering based on selected criteria.
+
+#### Issue 2: Typing Errors
+
+**Description:**
+Filter and filtering state typing was incorrect, leading to application errors.
+
+**Solution:**
+Used `Partial<Record<keyof User, string>>` for filters, which simplified typing and avoided errors when accessing object properties.
+
+## Installation and Running
+
+1. Clone the repository:
+
+   ```bash
+   git clone git@github.com:Viktoryia-Vysotskaya/User_management.git
+
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd User_management
+
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+4. Start the application:
+   ```bash
+   npm start
+   ```
+
+The application will be available at **http://localhost:3000**.
+
+**Acknowledgements**
+Thank you for viewing and your attention! If you have any questions or suggestions, feel free to reach out. 💬
+
+**Created by Viktoryia Vysotskaya**
+
+- ➱ [Email](mailto:radevich.vika2014@gmail.com)
+- ➱ [LinkedIn](https://www.linkedin.com/in/viktoryia-vysotskaya)
