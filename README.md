@@ -4,7 +4,7 @@
 
 Hi there! 👋 I created this React application to showcase my skills with Redux Toolkit, TypeScript, and implementing data filtering. This application allows you to fetch a list of users from the JSONPlaceholder API and display it in a convenient table with filtering capabilities based on various criteria.
 
-💻 Live demo:
+💻 Live demo: https://user-management-nine-self.vercel.app
 
 (!) Free hosting so might take a while to load for first time.
 
